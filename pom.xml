@@ -66,22 +66,30 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                     </plugin>
             <plugin>
-			<groupId>com.spotify</groupId>
-			<artifactId>docker-maven-plugin</artifactId>
-			<version>0.4.11</version>
-			<configuration>
-				<imageName>gcr.io/{image_name}</imageName>
-				<dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
-				<resources>
-					<resource>
-						<targetPath>/</targetPath>
-						<directory>${project.build.directory}</directory>
-						<include>${project.artifactId}.jar</include>
-					</resource>
-				</resources>
-			</configuration>
-
-		</plugin>
+            <groupId>com.spotify</groupId>
+            <artifactId>docker-maven-plugin</artifactId>
+            <version>0.4.11</version>
+            <configuration>
+                <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+                <dockerDirectory>.</dockerDirectory>
+                <resources>
+                    <resource>
+                        <targetPath>/</targetPath>
+                        <directory>${project.build.directory}</directory>
+                        <include>${project.build.finalName}.jar</include>
+                    </resource>
+                </resources>
+            </configuration>
+            <executions>
+                <execution>
+                    <id>docker-build</id>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>build</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
         </plugins>
     </build>
 </project>
