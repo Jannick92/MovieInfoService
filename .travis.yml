@@ -1,3 +1,11 @@
 language: java
 sudo: false
 script: mvn clean verify
+
+sudo: required
+services:
+- docker
+script:
+- docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+- mvn clean package docker:build
+- docker push <your_name>/<your_repo>:<your_tag>
