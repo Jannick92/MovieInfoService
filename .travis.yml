@@ -8,4 +8,4 @@ services:
 script:
 - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 - mvn clean package docker:build
-- docker push <your_name>/<your_repo>:<your_tag>
+- docker push jverhulst/movieinfoservice:firstcommit
