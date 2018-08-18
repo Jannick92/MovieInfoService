@@ -1,7 +1,7 @@
 language: java
 cache:
-directories:
-- $HOME/.m2
+  directories:
+  - $HOME/.m2
 jdk:
 - oraclejdk8
 script:
@@ -12,6 +12,5 @@ services:
 - docker
 script:
 - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-- sudo mvn clean package docker:build
-#- sudo docker build -t docker.io/jverhulst/movieinfoservice:0.0.1 .
-- sudo docker push docker.io/jverhulst/movieinfoservice:0.0.1
+- mvn clean package docker:build
+- docker push docker.io/jverhulst/movieinfoservice:latest

@@ -64,10 +64,10 @@
            <plugin>
             <groupId>com.spotify</groupId>
             <artifactId>docker-maven-plugin</artifactId>
-            <version>1.1.1</version>
+            <version>0.4.10</version>
             <configuration>
-                <imageName>/jverhulst/movieinfoservice</imageName>
-                <dockerDirectory>.</dockerDirectory> 
+                <imageName>/jverhulst/movieinfoservice:latest</imageName>
+                <dockerDirectory>${basedir}/Dockerfile</dockerDirectory> 
                 <entryPoint>["java", "-jar", "target/${project.build.finalName}.jar"]</entryPoint>
                 <resources>
                     <resource>
@@ -77,16 +77,28 @@
                     </resource>
                 </resources>
             </configuration>
-            <executions>
-                <execution>
-                    <id>docker-build</id>
-                    <phase>package</phase>
-                    <goals>
-                        <goal>build</goal>
-                    </goals>
-                </execution>
-            </executions>
         </plugin>
+        <plugin>
+               <artifactId>maven-resources-plugin</artifactId>
+               <executions>
+                   <execution>
+                       <id>copy-resources</id>
+                       <phase>validate</phase>
+                       <goals>
+                           <goal>copy-resources</goal>
+                       </goals>
+                       <configuration>
+                           <outputDirectory>${basedir}/dockerfile</outputDirectory>
+                           <resources>
+                               <resource>
+                                   <directory>src/main/docker</directory>
+                                   <filtering>true</filtering>
+                               </resource>
+                           </resources>
+                       </configuration>
+                   </execution>
+               </executions>
+           </plugin>
         </plugins>
     </build>
 </project>
