@@ -12,8 +12,8 @@ public class MovieController {
 		 ms = new MovieService();
 	 }
 
-	 @RequestMapping("/movieInfo")
-	 public String getReview(@RequestParam(value="title", defaultValue="inception") String title) {
+	 @RequestMapping("/info")
+	 public String getReview(@RequestParam(value="title") String title) {
 		 return ms.getMovieInfo(title);
 	 }
 }
