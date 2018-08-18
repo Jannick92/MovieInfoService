@@ -66,6 +66,13 @@
             <artifactId>docker-maven-plugin</artifactId>
             <version>1.1.1</version>
             <configuration>
+            <servers>
+            <server>
+    <id>docker-hub</id>
+    <username>jverhulst</username>
+    <password>3070Kortenberg</password>
+  </server>
+            </servers>
                 <imageName>/jverhulst/movieinfoservice</imageName>
                 <dockerDirectory>.</dockerDirectory> 
                 <entryPoint>["java", "-jar", "target/FilmService-0.0.1-SNAPSHOT.jar"]</entryPoint>
