@@ -64,10 +64,10 @@
            <plugin>
             <groupId>com.spotify</groupId>
             <artifactId>docker-maven-plugin</artifactId>
-            <version>0.4.10</version>
+            <version>1.1.1</version>
             <configuration>
                 <imageName>/jverhulst/movieinfoservice:latest</imageName>
-                <dockerDirectory>${basedir}/target/Dockerfile</dockerDirectory> 
+                <dockerDirectory>${basedir}/target/dockerfile</dockerDirectory> 
                 <resources>
                     <resource>
                         <targetPath>/</targetPath>
@@ -87,7 +87,7 @@
                            <goal>copy-resources</goal>
                        </goals>
                        <configuration>
-                           <outputDirectory>${basedir}/target/Dockerfile</outputDirectory>
+                           <outputDirectory>${basedir}/target/dockerfile</outputDirectory>
                            <resources>
                                <resource>
                                    <directory>src/main/docker</directory>
