@@ -64,9 +64,10 @@
            <plugin>
             <groupId>com.spotify</groupId>
             <artifactId>docker-maven-plugin</artifactId>
-            <version>0.4.11</version>
+            <version>1.4.3</version>
             <configuration>
                 <imageName>docker.io/jverhulst/movieinfoservice</imageName>
+                <tag>${project.version}</tag>
                 <dockerDirectory>.</dockerDirectory> 
                 <entryPoint>["java", "-jar", "/MovieInfoService.jar"]</entryPoint>
                 <resources>
