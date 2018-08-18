@@ -68,7 +68,7 @@
             <configuration>
                 <imageName>/jverhulst/movieinfoservice</imageName>
                 <dockerDirectory>.</dockerDirectory> 
-                <entryPoint>["java", "-jar", "/FilmService-0.0.1-SNAPSHOT.jar"]</entryPoint>
+                <entryPoint>["java", "-jar", "target/FilmService-0.0.1-SNAPSHOT.jar"]</entryPoint>
                 <resources>
                     <resource>
                         <targetPath>/</targetPath>
