@@ -13,4 +13,4 @@ services:
 script:
 - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 - mvn clean package docker:build
-- docker push jverhulst/movieinfoservice:latest
+- docker push [jverhulst/movieinfoservice:latest]
