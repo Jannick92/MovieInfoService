@@ -1,9 +1,11 @@
 language: java
-sudo: false
-script: mvn clean verify
-
+cache:
+directories:
+- $HOME/.m2
 jdk:
-  - openjdk8
+- oraclejdk8
+script:
+- mvn clean package
 
 sudo: required
 services:
