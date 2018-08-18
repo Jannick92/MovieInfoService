@@ -2,6 +2,9 @@ language: java
 sudo: false
 script: mvn clean verify
 
+jdk:
+  - openjdk8
+
 sudo: required
 services:
 - docker
