@@ -67,7 +67,7 @@
             <version>0.4.11</version>
             <configuration>
                 <imageName>/jverhulst/movieinfoservice:latest</imageName>
-                <dockerDirectory>${basedir}/target/dockerfile</dockerDirectory> 
+                <dockerDirectory>${basedir}/dockerfile</dockerDirectory> 
                 <resources>
                     <resource>
                         <targetPath>/</targetPath>
@@ -87,7 +87,7 @@
                            <goal>copy-resources</goal>
                        </goals>
                        <configuration>
-                           <outputDirectory>${basedir}/target/dockerfile</outputDirectory>
+                           <outputDirectory>${basedir}/dockerfile</outputDirectory>
                            <resources>
                                <resource>
                                    <directory>src/main/docker</directory>
